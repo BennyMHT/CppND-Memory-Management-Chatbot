@@ -11,7 +11,12 @@ GraphNode::~GraphNode()
     //// STUDENT CODE
     ////
 
-    delete _chatBot; 
+    // delete _chatBot; 
+    /*for(auto id = _childEdges->begin(); id != _childEdges->end(); id++)
+    delete *id;
+
+    for(auto id = _parentEdges->begin(); id != _parentEdges->end(); id++)
+    delete *id;*/
 
     ////
     //// EOF STUDENT CODE
@@ -24,12 +29,12 @@ void GraphNode::AddToken(std::string token)
 
 void GraphNode::AddEdgeToParentNode(GraphEdge *edge)
 {
-    _parentEdges.push_back(edge);
+    _parentEdges->push_back(edge);
 }
 
 void GraphNode::AddEdgeToChildNode(GraphEdge *edge)
 {
-    _childEdges.push_back(edge);
+    _childEdges->push_back(edge);
 }
 
 //// STUDENT CODE
@@ -53,7 +58,7 @@ GraphEdge *GraphNode::GetChildEdgeAtIndex(int index)
     //// STUDENT CODE
     ////
 
-    return _childEdges[index];
+    return (*_childEdges)[index];
 
     ////
     //// EOF STUDENT CODE
